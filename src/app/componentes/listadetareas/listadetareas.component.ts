@@ -8,14 +8,16 @@ import { TareaInterface } from 'src/app/TareaInterface';
   styleUrls: ['./listadetareas.component.css']
 })
 export class ListadetareasComponent implements OnInit {
-  tareas: TareaInterface [] = [];
+  tareas: TareaInterface[] = [];
   
   constructor ( 
     private TareaserviceService: TareaserviceService
     ) { }
 
   ngOnInit(): void {
-    this.tareas = this.TareaserviceService.getTareas();
+    this.TareaserviceService.getTareas().subscribe((tareas)=>(
+      this.tareas = this.tareas
+    ));
   }
 
 }
