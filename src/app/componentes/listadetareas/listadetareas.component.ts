@@ -15,9 +15,12 @@ export class ListadetareasComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    this.TareaserviceService.getTareas().subscribe((tareas)=>(
-      this.tareas = this.tareas
-    ));
+    this.getTareas();
+  }
+
+  getTareas():void {
+    this.TareaserviceService.getTareas()
+    .subscribe(tareas =>this.tareas = tareas);
   }
 
 }

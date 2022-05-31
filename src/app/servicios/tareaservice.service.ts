@@ -1,20 +1,19 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHandler } from '@angular/common/http'
-import { Observable, of } from 'rxjs';
-import { TareaInterface } from 'src/app/TareaInterface';
 import { LISTADETAREAS } from 'src/app/mock-tareas';
+import { TareaInterface } from 'src/app/TareaInterface';
+import { Observable, of } from 'rxjs'; 
+
+// import { HttpClient, HttpHandler } from '@angular/common/http'
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class TareaserviceService {
-  private apiUrl = ' http://localhost:5000/tareas'
+  constructor() { }
 
-  constructor(
-    private http :HttpClient
-  ) { }
-
-  getTareas () : Observable<TareaInterface[]>{
-    return this.http.get<TareaInterface[]>(this.apiUrl)
+  getTareas () : Observable<TareaInterface[]> {
+    const tareas = of(LISTADETAREAS);
+    return tareas;
   }
 }
